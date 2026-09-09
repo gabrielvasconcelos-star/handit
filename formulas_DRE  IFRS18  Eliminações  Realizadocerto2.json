@@ -1,0 +1,247 @@
+[
+  {
+    "name": "['(=) Receita Operacional Líquida']",
+    "description": null,
+    "userExpression": "['(=) Receita Operacional Líquida'] = ['Receita Operacional Bruta'] + ['(-) Impostos incidentes / devoluções']",
+    "expression": "",
+    "disabled": false
+  },
+  {
+    "name": "['(=) Lucro Bruto']",
+    "description": null,
+    "userExpression": "['(=) Lucro Bruto'] = ['(=) Receita Operacional Líquida'] + ['(-) Custo dos produtos vendidos - Total']",
+    "expression": "",
+    "disabled": false
+  },
+  {
+    "name": "['(=) Lucro Operacional']",
+    "description": null,
+    "userExpression": "['(=) Lucro Operacional'] = ['(=) Lucro Bruto'] + ['(-)Despesas gerais e administrativas'] + ['(-)Despesas comerciais'] + ['(+/-)Outras receitas (despesas) operacionais']",
+    "expression": "",
+    "disabled": false
+  },
+  {
+    "name": "['Resultado das atividades de Investimento']",
+    "description": null,
+    "userExpression": "['Resultado das atividades de Investimento'] = ['(+)Receitas das atividades de Investimento'] + ['(-)Despesas das atividades de Investimento']",
+    "expression": "",
+    "disabled": false
+  },
+  {
+    "name": "['Lucro Antes dos Resultados Financeiros e Impostos']",
+    "description": null,
+    "userExpression": "['Lucro Antes dos Resultados Financeiros e Impostos'] = ['(=) Lucro Operacional'] + ['Resultado das atividades de Investimento']",
+    "expression": "",
+    "disabled": false
+  },
+  {
+    "name": "['Resultado das atividades de Financiamento']",
+    "description": null,
+    "userExpression": "['Resultado das atividades de Financiamento'] = ['(+)Receitas das atividades de Financiamento'] + ['(-)Despesas das atividades de Financiamento']",
+    "expression": "",
+    "disabled": false
+  },
+  {
+    "name": "['(=) Lucro antes dos impostos']",
+    "description": null,
+    "userExpression": "['(=) Lucro antes dos impostos'] = ['Lucro Antes dos Resultados Financeiros e Impostos'] + ['Resultado das atividades de Financiamento']",
+    "expression": "",
+    "disabled": false
+  },
+  {
+    "name": "['(=) Lucro líquido do período']",
+    "description": null,
+    "userExpression": "['(=) Lucro líquido do período'] = ['(=) Lucro antes dos impostos'] + ['(-)Contribuição Social'] + ['(-)Imposto de Renda'] + ['Operações Descontinuadas']",
+    "expression": "",
+    "disabled": false
+  },
+  {
+    "name": "['Eliminação Transferencia']['CIMENTO TRANSFERIDO']",
+    "description": null,
+    "userExpression": "['Eliminação Transferencia']['CIMENTO TRANSFERIDO'] = 'Custos - Total Transferência Cimento - Realizado'@['Filial':*]['Insumos de Concreto':*][M:'Total Preço Líq. Transf. Cimento'] *-1",
+    "expression": "",
+    "disabled": false
+  },
+  {
+    "name": "['Eliminação Transferencia']['CUSTO DO CIMENTO TRANSFERIDO']",
+    "description": null,
+    "userExpression": "['Eliminação Transferencia']['CUSTO DO CIMENTO TRANSFERIDO'] =  'Custos - Custo do Cimento Consumido - Realizado'@['Divisão':'Concreto']['Filial':*]['Produto':'CIMENTO CPII-F 32 ITAMBE','CIMENTO CPIV 32 ITAMBE','CIMENTO CPII-F 40 ITAMBE'][M:'Custo Total']",
+    "expression": "",
+    "disabled": false
+  },
+  {
+    "name": "['Eliminação Transferencia']['CUSTO DOS PRODUTOS TRANSFERIDOS - SOMENTE CONCRETO']",
+    "description": null,
+    "userExpression": "['Eliminação Transferencia']['CUSTO DOS PRODUTOS TRANSFERIDOS - SOMENTE CONCRETO'] = 'Custos - Total Transferência Cimento - Realizado'@['Divisão':'Concreto']['Filial':*]['Insumos de Concreto':*][M:'Total Preço Líq. Transf. Cimento']",
+    "expression": "",
+    "disabled": false
+  },
+  {
+    "name": "['Eliminação Transferencia']['CUSTO DOS PRODUTOS TRANSFERIDOS']",
+    "description": null,
+    "userExpression": "['Eliminação Transferencia']['CUSTO DOS PRODUTOS TRANSFERIDOS'] =  'Custos - Custo do Cimento Consumido - Realizado'@['Filial':*]['Produto':'CIMENTO CPII-F 32 ITAMBE','CIMENTO CPIV 32 ITAMBE','CIMENTO CPII-F 40 ITAMBE'][M:'Custo Total'] *-1\n",
+    "expression": "",
+    "disabled": false
+  },
+  {
+    "name": "['Eliminação Sirama - Sita']['4102020101 - FRETES']",
+    "description": null,
+    "userExpression": "['Eliminação Sirama - Sita']['4102020101 - FRETES'] = 'Vendas - Realizado'@['Empresa':'Sita']['Divisão':*]['Filial':*]['Canal de Vendas':'Intercompany'][M:'Vlr. Bruto'] *-1",
+    "expression": "",
+    "disabled": false
+  },
+  {
+    "name": "['Eliminação Sirama - Sita']['4103010101 - (-) ICMS']",
+    "description": null,
+    "userExpression": "['Eliminação Sirama - Sita']['4103010101 - (-) ICMS'] = 'Vendas - Realizado'@['Empresa':'Sita']['Divisão':*]['Filial':*]['Canal de Vendas':'Intercompany'][M:'Vlr. ICMS']",
+    "expression": "",
+    "disabled": false
+  },
+  {
+    "name": "['Eliminação Sirama - Sita']['4103010102 - (-) ICMS S/ SUBSTITUICAO TRIBUTARIA']",
+    "description": null,
+    "userExpression": "['Eliminação Sirama - Sita']['4103010102 - (-) ICMS S/ SUBSTITUICAO TRIBUTARIA'] = 'Vendas - Realizado'@['Empresa':'Sita']['Divisão':*]['Filial':*]['Canal de Vendas':'Intercompany'][M:'Vlr. ICMS ST / Ret.']",
+    "expression": "",
+    "disabled": false
+  },
+  {
+    "name": "['Eliminação Sirama - Sita']['4103010103 - (-) PIS']",
+    "description": null,
+    "userExpression": "['Eliminação Sirama - Sita']['4103010103 - (-) PIS'] = 'Vendas - Realizado'@['Empresa':'Sita']['Divisão':*]['Filial':*]['Canal de Vendas':'Intercompany'][M:'Vlr. PIS']",
+    "expression": "",
+    "disabled": false
+  },
+  {
+    "name": "['Eliminação Sirama - Sita']['4103010104 - (-) COFINS']",
+    "description": null,
+    "userExpression": "['Eliminação Sirama - Sita']['4103010104 - (-) COFINS'] = 'Vendas - Realizado'@['Empresa':'Sita']['Divisão':*]['Filial':*]['Canal de Vendas':'Intercompany'][M:'Vlr. COFINS']",
+    "expression": "",
+    "disabled": false
+  },
+  {
+    "name": "['Eliminação Sirama - Rio Bonito']['4102030101 - CO-PROCESSAMENTO']",
+    "description": null,
+    "userExpression": "['Eliminação Sirama - Rio Bonito']['4102030101 - CO-PROCESSAMENTO'] = 'Vendas - Realizado'@['Empresa':'Rio Bonito']['Divisão':'Rio Bonito']['Filial':'90 - Rio Bonito - Matriz']['Canal de Vendas':'Intercompany'][M:'Vlr. Bruto'] *-1",
+    "expression": "",
+    "disabled": false
+  },
+  {
+    "name": "['Eliminação Sirama - Rio Bonito']['4103010101 - (-) ICMS']",
+    "description": null,
+    "userExpression": "['Eliminação Sirama - Rio Bonito']['4103010101 - (-) ICMS'] = 'Vendas - Realizado'@['Empresa':'Rio Bonito']['Divisão':*]['Filial':*]['Canal de Vendas':'Intercompany'][M:'Vlr. ICMS']",
+    "expression": "",
+    "disabled": false
+  },
+  {
+    "name": "['Eliminação Sirama - Rio Bonito']['4103010103 - (-) PIS']",
+    "description": null,
+    "userExpression": "['Eliminação Sirama - Rio Bonito']['4103010103 - (-) PIS'] = 'Vendas - Realizado'@['Empresa':'Rio Bonito']['Divisão':*]['Filial':*]['Canal de Vendas':'Intercompany'][M:'Vlr. PIS']",
+    "expression": "",
+    "disabled": false
+  },
+  {
+    "name": "['Eliminação Sirama - Rio Bonito']['4103010104 - (-) COFINS']",
+    "description": null,
+    "userExpression": "['Eliminação Sirama - Rio Bonito']['4103010104 - (-) COFINS'] = 'Vendas - Realizado'@['Empresa':'Rio Bonito']['Divisão':*]['Filial':*]['Canal de Vendas':'Intercompany'][M:'Vlr. COFINS']",
+    "expression": "",
+    "disabled": false
+  },
+  {
+    "name": "['Eliminação Sirama - Rio Bonito']['4103010107 - (-) ISS']",
+    "description": null,
+    "userExpression": "['Eliminação Sirama - Rio Bonito']['4103010107 - (-) ISS'] = 'Vendas - Realizado'@['Empresa':'Rio Bonito']['Divisão':*]['Filial':*]['Canal de Vendas':'Intercompany'][M:'Vlr. ISS']",
+    "expression": "",
+    "disabled": false
+  },
+  {
+    "name": "['Eliminação Sirama - Novo Horizonte']['4102060101 - RECEITA DE ALUGUEIS']",
+    "description": null,
+    "userExpression": "['Eliminação Sirama - Novo Horizonte']['4102060101 - RECEITA DE ALUGUEIS'] = 'Vendas - Realizado'@['Empresa':'Novo Horizonte']['Divisão':*]['Filial':*]['Canal de Vendas':'Intercompany']['Grupo de Produtos':'IMOVEIS PARA LOCACAO'][M:'Vlr. Bruto'] *-1",
+    "expression": "",
+    "disabled": false
+  },
+  {
+    "name": "['Eliminação Sirama - Novo Horizonte']['4103010103 - (-) PIS']",
+    "description": "\n",
+    "userExpression": "['Eliminação Sirama - Novo Horizonte']['4103010103 - (-) PIS'] = 'Vendas - Realizado'@['Empresa':'Novo Horizonte']['Divisão':*]['Filial':*]['Canal de Vendas':'Intercompany'][M:'Vlr. Bruto'] * 0,65%",
+    "expression": "",
+    "disabled": false
+  },
+  {
+    "name": "['Eliminação Sirama - Novo Horizonte']['4103010104 - (-) COFINS']",
+    "description": null,
+    "userExpression": "['Eliminação Sirama - Novo Horizonte']['4103010104 - (-) COFINS'] = 'Vendas - Realizado'@['Empresa':'Novo Horizonte']['Divisão':*]['Filial':*]['Canal de Vendas':'Intercompany'][M:'Vlr. Bruto'] * 3%",
+    "expression": "",
+    "disabled": false
+  },
+  {
+    "name": "['Eliminação Sirama - Energética']['4101010108 - ENERGIA ELETRICA']",
+    "description": null,
+    "userExpression": "['Eliminação Sirama - Energética']['4101010108 - ENERGIA ELETRICA'] = 'DRE - IFRS18 - DexPara - Conta Contabil - Realizado'@['Divisão':'Energética']['DRE - IFRS18 N1':'Receita Operacional Bruta']['Conta Contábil Analítica':'4101010108 - ENERGIA ELETRICA'][M:'Vlr. Realizado'] *-1",
+    "expression": "",
+    "disabled": false
+  },
+  {
+    "name": "['Eliminação Sirama - Energética']['4103010103 - (-) PIS']",
+    "description": null,
+    "userExpression": "['Eliminação Sirama - Energética']['4103010103 - (-) PIS'] = 'Vendas - Realizado'@['Empresa':'Energética']['Divisão':*]['Filial':*]['Canal de Vendas':'Intercompany'][M:'Vlr. PIS']",
+    "expression": "",
+    "disabled": false
+  },
+  {
+    "name": "['Eliminação Sirama - Energética']['4103010104 - (-) COFINS']",
+    "description": null,
+    "userExpression": "['Eliminação Sirama - Energética']['4103010104 - (-) COFINS'] = 'Vendas - Realizado'@['Empresa':'Energética']['Divisão':*]['Filial':*]['Canal de Vendas':'Intercompany'][M:'Vlr. COFINS']",
+    "expression": "",
+    "disabled": false
+  },
+  {
+    "name": "['Eliminação Sirama - Itambé']['3101010101 - CUSTO DOS PRODUTOS E SERVICOS VENDIDOS']",
+    "description": "['Eliminação Sirama - Sita']['Conta Contábil Analítica':*] + \n['Eliminação Sirama - Rio Bonito']['Conta Contábil Analítica':*] +\n['Eliminação Sirama - Energética']['Conta Contábil Analítica':*] +\n['Eliminação Sirama - Novo Horizonte']['Conta Contábil Analítica':*] + \n('Gastos Fixos - Realizado'@['05 - Matriz - Cimento']['Alocação CC':'DESP. ADMINISTRATIVA']['3205020115 - LOCACAO DE IMOVEIS - DESPESA'][M:'Vlr. Realizado'] * 1000)",
+    "userExpression": "['Eliminação Sirama - Itambé']['3101010101 - CUSTO DOS PRODUTOS E SERVICOS VENDIDOS'] = \n'DRE - IFRS18 - Eliminações - Realizado'@['Eliminação Sirama - Itambé']['Custos Variáveis'] +\n'Vendas - Realizado'@['Empresa':'Novo Horizonte']['Divisão':*]['Filial':*]['Canal de Vendas':'Intercompany']['Produto':* NOT('IMOVEIS PARA LOCACAO - ITAMBE SEDE         ')][M:'Vlr. Líquido']\n",
+    "expression": "",
+    "disabled": false
+  },
+  {
+    "name": "['Eliminação Sirama - Itambé']['3205020115 - LOCACAO DE IMOVEIS - DESPESA']",
+    "description": null,
+    "userExpression": "['Eliminação Sirama - Itambé']['DRE - IFRS18 N1':'(-)Despesas gerais e administrativas']['3205020115 - LOCACAO DE IMOVEIS - DESPESA'] = \n'Vendas - Realizado'@['Empresa':'Novo Horizonte']['Divisão':*]['Filial':*]['Canal de Vendas':'Intercompany']['Produto':'IMOVEIS PARA LOCACAO - ITAMBE SEDE         '][M:'Vlr. Líquido']\n",
+    "expression": "",
+    "disabled": false
+  },
+  {
+    "name": "['Eliminação Sirama']['PARTICIPACAO MINORITARIOS']",
+    "description": null,
+    "userExpression": "['Eliminação Sirama']['PARTICIPACAO MINORITARIOS'] = 'DRE - IFRS18 - Cálculo de Minoritários - Realizado'@['Itambé','Sita'][M:'Minoritários'] *-1",
+    "expression": "",
+    "disabled": false
+  },
+  {
+    "name": "['(+)Receitas das atividades de Investimento']['ITA ENERGETICA']",
+    "description": null,
+    "userExpression": "['(+)Receitas das atividades de Investimento']['Conta Contábil Analítica':'4106010205 - ITA ENERGETICA S/A','4106010405 - (-) ITA ENERGETICA S/A'] = 0",
+    "expression": "",
+    "disabled": false
+  },
+  {
+    "name": "['Eliminação Sirama']['(+)Receitas das atividades de Investimento']",
+    "description": null,
+    "userExpression": "['Eliminação Sirama']['(+)Receitas das atividades de Investimento'] = 'DRE - IFRS18 - DexPara - Conta Contabil - Realizado'@['Empresa':'Sirama']['Divisão':*]['Filial':*]['DRE - IFRS18 N1':'(+)Receitas das atividades de Investimento'] *-1",
+    "expression": "",
+    "disabled": false
+  },
+  {
+    "name": "['Eliminação Sirama - Itambé']['(+)Receitas das atividades de Investimento']",
+    "description": null,
+    "userExpression": "['Eliminação Sirama - Itambé']['(+)Receitas das atividades de Investimento'] = 'DRE - IFRS18 - DexPara - Conta Contabil - Realizado'@['Empresa':'Itambé']['Divisão':*]['Filial':*]['DRE - IFRS18 N1':'(+)Receitas das atividades de Investimento'] *-1",
+    "expression": "",
+    "disabled": false
+  },
+  {
+    "name": "['Eliminação Sirama - Sita']['(+)Receitas das atividades de Investimento']",
+    "description": null,
+    "userExpression": "['Eliminação Sirama - Sita']['(+)Receitas das atividades de Investimento'] = 'DRE - IFRS18 - DexPara - Conta Contabil - Realizado'@['Empresa':'Sita']['Divisão':*]['Filial':*]['DRE - IFRS18 N1':'(+)Receitas das atividades de Investimento'] *-1",
+    "expression": "",
+    "disabled": false
+  }
+]
